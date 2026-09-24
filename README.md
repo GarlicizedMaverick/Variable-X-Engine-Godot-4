@@ -1,9 +1,9 @@
 # Variable-X-Engine-Godot-4
 Mega Man X-styled character controller in Godot 4.x
 
-Base resolution: 960x540
+Base resolution: 960x540 pixels
 
-Gameplay resolution: 640x512
+Gameplay resolution: 640x512 pixels
 
 Tile size: 32x32 pixels
 
