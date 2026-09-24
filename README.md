@@ -40,9 +40,9 @@ Essentially, I use a resolution of 320x256 (1 tile taller than the PS1 games (wh
   * Dash wall jumps are styled after X2's and onward (the dash button only needs to be held) rather than X1/MHX's (dash button needs to be pressed around the same time as the jump button).
   * In the SNES games and MHX (and some Classic titles such as 6 and Wily Wars) when the player walks off of a ledge, if they move back into it before they fall too far, they will snap back to the floor above. I do not implement it, as I personally find it annoying in an X game. I'd prefer to walk off of a ledge, change direction, then start sliding immediately. I find it moderately useful in a Classic game, however.
 * Knockback State
-  * In the SNES games, the knockback state lasts 31 frames (~0.51666 seconds) but I have it set to 0.3 (closer to the Zero/ZX games)
+  * In the SNES games, the knockback state lasts 31 frames (~0.51666 seconds) but I have it set to 0.3 seconds (closer to the Zero/ZX games)
   * In the SNES and GBC games, X could cancel the knockback state by grabbing onto a wall. I have implemented this.
-  * If X gets hit while sliding down a wall, he gets knocked off of the wall, but is able to grab it immediately in the SNES/GBC games. I've implemented this. In all of the other X(-esque) games, the player can't regrab the wall *at all*.
+  * If X gets hit while sliding down a wall, he gets knocked off of the wall, but is able to grab it immediately in the SNES/GBC games. I've implemented this. In all of the other X(-esque) games, the player can't re-grab the wall *at all*.
   * X can wall jump out of the knockback state if he's close enough to a wall, though this behavior isn't in ANY post-Classic Mega Man title.
 * Invincibility Frames
   * Last for exactly 1.5 second (90 frames at 60 Hz) by default. This is slightly inaccurate to the SNES games which have an i-frame period of 93 frames. Although, the Zero/ZX games use 90 frames
