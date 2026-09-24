@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dcclf766vtes5"]
+
+[ext_resource type="Script" uid="uid://cam6b302a1t3b" path="res://Scripts/buster_lemon.gd" id="1_lte3u"]
+[ext_resource type="Texture2D" uid="uid://ccb4i7lj0fk8a" path="res://Graphics/lemon_demo.png" id="2_orvji"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rg8c5"]
+size = Vector2(16, 12)
+
+[node name="BusterLemon" type="Area2D" unique_id=1302635736]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_lte3u")
+one_shot = true
+metadata/_custom_type_script = "uid://duxb6lx13vga1"
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1476348264]
+texture = ExtResource("2_orvji")
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1451446574]
+shape = SubResource("RectangleShape2D_rg8c5")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=740443516]
+rect = Rect2(-8, -6, 16, 12)
+show_rect = false
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

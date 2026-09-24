@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://37je2d1e6cdo"]
+
+[ext_resource type="Script" uid="uid://dw3mw3vmdk68p" path="res://Scripts/dummy_enemy.gd" id="1_0pq43"]
+[ext_resource type="Texture2D" uid="uid://cpkc7q7c73iab" path="res://Graphics/icon.svg" id="1_nt842"]
+[ext_resource type="Script" uid="uid://d3ffg1lr2q6ur" path="res://Scripts/Resources/enemy_stats.gd" id="2_fxqmj"]
+[ext_resource type="Script" uid="uid://duxb6lx13vga1" path="res://Scripts/hitbox2d.gd" id="4_ana4i"]
+[ext_resource type="Script" uid="uid://dxqhsns2qbce0" path="res://Scripts/hurtbox2d.gd" id="5_bcj7j"]
+
+[sub_resource type="Resource" id="Resource_fxqmj"]
+resource_local_to_scene = true
+script = ExtResource("2_fxqmj")
+max_health = 18.0
+metadata/_custom_type_script = "uid://d3ffg1lr2q6ur"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rg8c5"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bje1e"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xeecd"]
+size = Vector2(64, 64)
+
+[node name="DummyEnemy" type="CharacterBody2D" unique_id=1756077245]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_0pq43")
+stats = SubResource("Resource_fxqmj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1351548814]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_nt842")
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1789628324]
+shape = SubResource("RectangleShape2D_rg8c5")
+
+[node name="HitBox2D" type="Area2D" parent="." unique_id=696640451]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("4_ana4i")
+damage = 2.0
+metadata/_custom_type_script = "uid://duxb6lx13vga1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox2D" unique_id=1586033936]
+shape = SubResource("RectangleShape2D_bje1e")
+
+[node name="HurtBox2D" type="Area2D" parent="." unique_id=1634302377]
+script = ExtResource("5_bcj7j")
+metadata/_custom_type_script = "uid://dxqhsns2qbce0"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox2D" unique_id=1928052583]
+shape = SubResource("RectangleShape2D_xeecd")

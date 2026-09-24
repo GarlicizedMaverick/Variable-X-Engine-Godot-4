@@ -1,0 +1,197 @@
+[gd_scene format=3 uid="uid://b1cc0hrphc6sa"]
+
+[ext_resource type="Script" uid="uid://tcl0fhdvxq5d" path="res://Scripts/player.gd" id="1_lm2ka"]
+[ext_resource type="Texture2D" uid="uid://htv5v8teodlx" path="res://Graphics/x_idle_large_4bpp.png" id="1_nikbh"]
+[ext_resource type="Script" uid="uid://cgqm838ajpmvq" path="res://Scripts/Resources/player_stats.gd" id="2_87pht"]
+[ext_resource type="PackedScene" uid="uid://dcclf766vtes5" path="res://Scenes/Objects/buster_lemon.tscn" id="3_wn7ci"]
+[ext_resource type="Texture2D" uid="uid://s82g1805adfi" path="res://Graphics/x_dash_large_4bpp.png" id="4_b2ja5"]
+[ext_resource type="Script" uid="uid://dxqhsns2qbce0" path="res://Scripts/hurtbox2d.gd" id="4_mqoqv"]
+[ext_resource type="Texture2D" uid="uid://b1ww7t70lwkv2" path="res://Graphics/x_jump_large_4bpp.png" id="6_tvyim"]
+
+[sub_resource type="Resource" id="Resource_5kdf5"]
+script = ExtResource("2_87pht")
+metadata/_custom_type_script = "uid://cgqm838ajpmvq"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rg8c5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_b2ja5")
+}],
+"loop": 1,
+"name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nikbh")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_tvyim")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rg8c5"]
+size = Vector2(31.8, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xeecd"]
+size = Vector2(31.9, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bje1e"]
+size = Vector2(2, 2)
+
+[node name="Player" type="CharacterBody2D" unique_id=729706690]
+collision_layer = 2
+collision_mask = 17
+slide_on_ceiling = false
+floor_constant_speed = true
+floor_max_angle = 1.0471976
+floor_snap_length = 32.0
+safe_margin = 0.031
+script = ExtResource("1_lm2ka")
+stats = SubResource("Resource_5kdf5")
+lemon = ExtResource("3_wn7ci")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=224364706]
+sprite_frames = SubResource("SpriteFrames_rg8c5")
+animation = &"idle"
+offset = Vector2(-3, -15)
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=637153074]
+shape = SubResource("RectangleShape2D_rg8c5")
+
+[node name="HurtBox2D" type="Area2D" parent="." unique_id=528673707]
+collision_layer = 4
+collision_mask = 24
+script = ExtResource("4_mqoqv")
+metadata/_custom_type_script = "uid://dxqhsns2qbce0"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox2D" unique_id=840154139]
+shape = SubResource("RectangleShape2D_xeecd")
+
+[node name="Sensors" type="Node2D" parent="." unique_id=1281907271]
+
+[node name="RayCeilingLeft" type="RayCast2D" parent="Sensors" unique_id=87682649]
+position = Vector2(-15.9, 0)
+target_position = Vector2(0, -36)
+
+[node name="RayCeilingRight" type="RayCast2D" parent="Sensors" unique_id=889998066]
+position = Vector2(15.9, 0)
+target_position = Vector2(0, -36)
+
+[node name="RayCeilingDashLeft" type="RayCast2D" parent="Sensors" unique_id=1208003922]
+position = Vector2(-15.9, 0)
+target_position = Vector2(0, -31)
+
+[node name="RayCeilingDashRight" type="RayCast2D" parent="Sensors" unique_id=233750075]
+position = Vector2(15.9, 0)
+target_position = Vector2(0, -31)
+
+[node name="RayFloorLeft" type="RayCast2D" parent="Sensors" unique_id=1509216341]
+position = Vector2(-15.9, 0)
+target_position = Vector2(0, 30.3)
+
+[node name="RayFloorRight" type="RayCast2D" parent="Sensors" unique_id=1972735533]
+position = Vector2(15.9, 0)
+target_position = Vector2(0, 30.3)
+
+[node name="RayFloorSafeguardLeft" type="RayCast2D" parent="Sensors" unique_id=1879187586]
+position = Vector2(-15.9, 0)
+target_position = Vector2(0, 34)
+
+[node name="RayFloorSafeguardRight" type="RayCast2D" parent="Sensors" unique_id=446487488]
+position = Vector2(15.9, 0)
+target_position = Vector2(0, 34)
+
+[node name="RayWallLeftTop" type="RayCast2D" parent="Sensors" unique_id=492608876]
+position = Vector2(0, -30)
+target_position = Vector2(-38, 0)
+
+[node name="RayWallLeftCenter" type="RayCast2D" parent="Sensors" unique_id=681294889]
+target_position = Vector2(-38, 0)
+
+[node name="RayWallLeftBottom" type="RayCast2D" parent="Sensors" unique_id=898142012]
+position = Vector2(0, 30)
+target_position = Vector2(-38, 0)
+
+[node name="RayWallRightTop" type="RayCast2D" parent="Sensors" unique_id=877186694]
+position = Vector2(0, -30)
+target_position = Vector2(38, 0)
+
+[node name="RayWallRightCenter" type="RayCast2D" parent="Sensors" unique_id=2017673585]
+target_position = Vector2(38, 0)
+
+[node name="RayWallRightBottom" type="RayCast2D" parent="Sensors" unique_id=320061659]
+position = Vector2(0, 30)
+target_position = Vector2(38, 0)
+
+[node name="CameraZoneCollider" type="Area2D" parent="Sensors" unique_id=1764936031]
+collision_layer = 2
+collision_mask = 16
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sensors/CameraZoneCollider" unique_id=462218647]
+shape = SubResource("RectangleShape2D_bje1e")
+
+[node name="DashTimer" type="Timer" parent="." unique_id=2122081180]
+process_callback = 0
+wait_time = 0.55
+one_shot = true
+
+[node name="WallGrabTimer" type="Timer" parent="." unique_id=1250956660]
+process_callback = 0
+wait_time = 0.133
+one_shot = true
+
+[node name="WallJumpTimer" type="Timer" parent="." unique_id=1099196834]
+process_callback = 0
+wait_time = 0.15
+one_shot = true
+
+[node name="KnockbackTimer" type="Timer" parent="." unique_id=1478731544]
+editor_description = "A SNES-accurate timer runs for 31 frames at 60 Hz (0.51666... seconds).
+
+I'll probably choose something closer to the Zero/ZX games (16?-18 frames at 60 Hz)."
+process_callback = 0
+wait_time = 0.3
+one_shot = true
+
+[node name="IFrameTimer" type="Timer" parent="." unique_id=2071973151]
+editor_description = "A SNES-accurate timer runs for 31 frames at 60 Hz (0.51666... seconds).
+
+I'll probably choose something closer to the Zero/ZX games (16?-18 frames at 60 Hz)."
+process_callback = 0
+one_shot = true
+
+[node name="TiptoeTimer" type="Timer" parent="." unique_id=139664565]
+process_callback = 0
+wait_time = 0.084
+one_shot = true
+
+[node name="CoyoteTimer" type="Timer" parent="." unique_id=1763458480]
+process_callback = 0
+wait_time = 0.1
+one_shot = true
+
+[node name="JumpBufferTimer" type="Timer" parent="." unique_id=2095148720]
+process_callback = 0
+wait_time = 0.4
+one_shot = true
+
+[node name="Camera" type="Camera2D" parent="." unique_id=713183810]
+process_callback = 0
+limit_left = 0
+limit_top = 0
+limit_right = 0
+limit_bottom = 0
+
+[node name="BusterSpawn" type="Marker2D" parent="." unique_id=504487600]
+position = Vector2(40, -5)

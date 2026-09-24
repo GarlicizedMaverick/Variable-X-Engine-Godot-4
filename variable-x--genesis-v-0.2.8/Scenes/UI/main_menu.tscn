@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://i6cgctc13qmn"]
+
+[ext_resource type="Script" uid="uid://dgoxdmoepwu01" path="res://Scripts/main_menu.gd" id="1_5wsvm"]
+
+[node name="MainMenu" type="Control" unique_id=2106443724]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5wsvm")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=617792657]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1254902, 0.0627451, 0.1882353, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1501866933]
+layout_mode = 0
+offset_left = 365.0
+offset_top = 297.0
+offset_right = 594.0
+offset_bottom = 523.0
+theme_override_constants/separation = 8
+
+[node name="MegaManX" type="Button" parent="VBoxContainer" unique_id=249873228]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 16
+text = "MEGA MAN X"
+
+[node name="LoadGame" type="Button" parent="VBoxContainer" unique_id=192982801]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 16
+text = "EVERLASTING PRELUDE"
+
+[node name="IrregularInvestigations" type="Button" parent="VBoxContainer" unique_id=1561452651]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 16
+text = "IRREGULAR INVESTIGATIONS"
+
+[node name="Options" type="Button" parent="VBoxContainer" unique_id=1840469288]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 16
+text = "OPTIONS"
+
+[node name="Extras" type="Button" parent="VBoxContainer" unique_id=2026177213]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 16
+text = "EXTRAS"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1740330881]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 16
+text = "QUIT"
