@@ -66,5 +66,5 @@ Essentially, I use a resolution of 320x256 (1 tile taller than the PS1 games (wh
   * You don't hit your head on an invisible ceiling at the camera's upper bound (unless there's terrain above, of course). This is how the SNES games work, but I believe that in the PlayStation games the camera's upper bound *does* act as a ceiling.
 * Ki
   * This is completely of my own designs. This project is a base for a personal project of mine: a(nother) remake of X1 (and maybe the rest, too). Part of that involves playing more into the growth arc present in the narrative. Ki is the instrument that brings it into gameplay.
-  * As Ki increases, X will jump higher, dash/shoot faster, increase his attack power, gain various properties taken from the chips systems of X5-X7, and so on.
+  * As Ki increases, X will jump higher, dash/shoot faster, increase his attack power, gain various properties taken from the parts systems of X5-X7, and so on.
   * You can safely ignore this if you want a vanilla X-styled controller, but feel free to play around with it if you like it and maybe even implement it in your own projects.
