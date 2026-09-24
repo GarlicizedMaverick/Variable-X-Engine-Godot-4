@@ -32,7 +32,9 @@ Essentially, I use a resolution of 320x256 (1 tile taller than the PS1 games (wh
   * In the actual SNES games, X doesn't jump higher while dashing down a slope, but he does here since I like it.
 * Wall Physics
   * In the SNES games, X takes 8 frames to grab onto a wall. Only then will he start sliding down it. I use this timing.
-  * 
+  * X's walljump in the SNES/PS1 games have a minimum jump height. In the Zero/ZX games, the wall jump can be cancelled immediately. I chose the Zero/ZX implementation.
+  * When X hits a ceiling while walljumping, the walljump gets canceled.
+  * When X's back hits terrain while walljumping, the walljump doesn't get canceled in the SNES games, but *does* in the PS1 games. I chose the SNES implementation.
   * In most post-Classic titles, the player can wall jump without actually need to be ON the wall. The length of how far the player can be varies greatly depending on the game. I use RayCast2Ds of a certain length to implement this. They can be easily changed to suit one's needs.
   * In the SNES games, X will snap closer to a wall if he walljumps off of it from a distance. I've simulated this mechanic (probably not particularly accurately).
   * Dash wall jumps are styled after X2's and onward (the dash button only needs to be held) rather than X1/MHX's (dash button needs to be pressed around the same time as the jump button).
@@ -40,6 +42,7 @@ Essentially, I use a resolution of 320x256 (1 tile taller than the PS1 games (wh
 * Knockback State
   * In the SNES games, the knockback state lasts 31 frames (~0.51666 seconds) but I have it set to 0.3 (closer to the Zero/ZX games)
   * In the SNES and GBC games, X could cancel the knockback state by grabbing onto a wall. I have implemented this.
+  * If X gets hit while sliding down a wall, he gets knocked off of the wall, but is able to grab it immediately in the SNES/GBC games. I've implemented this. In all of the other X(-esque) games, the player can't regrab the wall *at all*.
   * X can wall jump out of the knockback state if he's close enough to a wall, though this behavior isn't in ANY post-Classic Mega Man title.
 * Invincibility Frames
   * Last for exactly 1.5 second (90 frames at 60 Hz) by default. This is slightly inaccurate to the SNES games which have an i-frame period of 93 frames. Although, the Zero/ZX games use 90 frames
