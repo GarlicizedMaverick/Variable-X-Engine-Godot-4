@@ -33,7 +33,7 @@ Essentially, I use a resolution of 320x256 (1 tile taller than the PS1 games (wh
   * When walking down a slope, X will go faster depending on the gradient. His speed is unaffected while going up a slope.
     * Note that the tiptoe overrides slope speed while active. This is accurate to the SNES games.
   * X will also jump higher if he does so while walking down a slope (again, the height depending on the gradient).
-  * In the actual SNES games, X doesn't jump higher while dashing down a slope, but he does here since I like it.
+  * In the actual SNES games, X doesn't jump higher while dashing down a slope, but he does in this project since I prefer it that way (and it makes more sense).
 * Wall Physics
   * In the SNES games, X takes 8 frames to grab onto a wall. Only then will he start sliding down it. I use this timing.
   * X's walljump in the SNES/PS1 games have a minimum jump height. In the Zero/ZX games, the wall jump can be cancelled immediately. I chose the Zero/ZX implementation.
