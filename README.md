@@ -94,6 +94,7 @@ Each hex address mentioned is 2 bytes large.
 * 456 while walking down a steep slope (1.78125 p/f   ||   106.875 p/s)
 * 885 while dashing/dash wall jumping (3.45703125 p/f   ||   207.421875 p/s)
 * ±138 (depending on direction) while taking damage (31 frames) (±0.5390625 p/f   ||   ±32.34375 p/s)
+  * NOT halved with the chest part
 * ±64 (depending on direction) while starting a Giga Crash (~32 frames) (±0.25 p/f   ||   ±15 p/s)
 
 #### Vertical
@@ -110,6 +111,7 @@ Each hex address mentioned is 2 bytes large.
 * ±752 up/down ladders (with arm and leg parts) (±2.9375 p/f   ||   ±176.25 p/s)
 * 512 when climbing up the top of a ladder (four frames) (2 p/f   ||   120 p/s)
 * 512 when first taking knockback from a damage source (2 p/f   ||   120 p/s)
+  * Halved with the chest part
 * 128 while starting a Giga Crash (~32 frames) (0.5 p/f   ||   30 p/s)
 
 NOTE: His actual movement speed can differ, as these horizontal values are identical while it’s raining in Wire Sponge’s stage despite it lowering his speed.
