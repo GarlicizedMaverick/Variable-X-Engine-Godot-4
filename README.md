@@ -59,13 +59,16 @@ Essentially, I use a resolution of 320x256 (1 tile taller than the PS1 games (wh
 * Dummy Enemy
   * Does nothing but damage the player to show off the knockback state.
 * Lemons
-  * No interactions are coded, just spawning, moving, and self-deletion once offscreen.
+  * Dash Lemons are a separate entity.
   * In the SNES games, lemons start at a speed of 4 p/f and accelerate at a rate of 0.25 p/f^2 to a max speed of 6 p/f. I've multiplied these values by 5/4 since I use a base width of 320 px rather than the SNES's 256 px.
+* Custom Damage Tables
+  * One for enemies/bosses, one for the player.
 * Basic Camera System
   * Somewhat based off of how the SNES/PS1 games handle it (a bunch of areas that interpolate the camera bounds over a set amount of time)
   * X's position is clamped within the camera bounds. I believe this is how the actual SNES/PS1 games work.
   * While I haven't implemented a death/respawn system yet, I could pretty easily implement instant death pits by checking if X's position equals the camera's lower bound.
   * You don't hit your head on an invisible ceiling at the camera's upper bound (unless there's terrain above, of course). This is how the SNES games work, but I believe that in the PlayStation games the camera's upper bound *does* act as a ceiling.
+  * The player scene uses its own Area2D to detect the camera areas. This makes it easy to ignore detection whenever desired (such as for cutscenes).
 * Ki
   * This is completely of my own designs. This project is a base for a personal project of mine: a(nother) remake of X1 (and maybe the rest, too). Part of that involves playing more into the growth arc present in the narrative. Ki is the instrument that brings it into gameplay.
   * As Ki increases, X will jump higher, dash/shoot faster, increase his attack power, gain various properties taken from the parts systems of X5-X7, and so on.
@@ -130,7 +133,8 @@ This is just over eight seconds. (8.0333~)
 
 ### X-Buster Data
 
-Values occupy hex address 0010F2 (X2/X3) or 001242 (X1).  
+Horizontal values occupy hex address 0010F2 (X2/X3) or 001242 (X1).  
+Vertical values occupy hex address 0010F4 (X2/X3) or 001244 (X1).  
 Each hex address mentioned is 2 bytes large.
 
 NAMING:  
