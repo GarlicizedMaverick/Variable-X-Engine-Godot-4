@@ -59,6 +59,7 @@ Essentially, I use a resolution of 320x256 (1 tile taller than the PS1 games (wh
 * Dummy Enemy
   * Does nothing but damage the player to show off the knockback state.
 * Lemons
+  * Lemons don't go through walls like in X5 and onwards.
   * Dash Lemons are a separate entity.
   * In the SNES games, lemons start at a speed of 4 p/f and accelerate at a rate of 0.25 p/f^2 to a max speed of 6 p/f. I've multiplied these values by 5/4 since I use a base width of 320 px rather than the SNES's 256 px.
 * Custom Damage Tables
