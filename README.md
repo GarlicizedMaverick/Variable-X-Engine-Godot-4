@@ -3,6 +3,16 @@ Mega Man X-styled character controller in Godot 4.x
 
 Current Godot version: 4.7.2
 
+Current project version: 0.3.1
+* I'm using the semantic versioning of "Major.Minor.Patch" with the idea that version 1.0.0 will be the finished version of the game I'm building off of this (an X1 remake with two sidegames).
+* The minor version can essentially be thought of as a *major* version in the project's development, i.e.
+  * 0.1.x used a resolution of 320x240 and was closer to an actual SNES X game.
+  * 0.2.x introduced the 640x512 gameplay resolution, as well as additions to the character controller and the implementation of hit/hurtboxes.
+  * 0.3.x was where I did a complete overhaul on shooting and reworked the combat system (Variable Weapon System and hitboxes/hurtboxes).
+  * I'm anticipating for 0.4.x to have a major focus on designing enemies and their behaviors.
+  * I'll probably focus on implementing more Special Weapons for 0.5.x, as I've already finalized the system itself. Likely there'll be a new Special Weapon per patch version.
+<br>
+
 Base resolution: 960x540 pixels
 
 Gameplay resolution: 640x512 pixels
@@ -10,8 +20,13 @@ Gameplay resolution: 640x512 pixels
 Tile size: 32x32 pixels
 
 <br>
+<br>
 
-Essentially, I use a resolution of 320x256 (1 tile taller than the PS1 games (which are 1 tile taller than the SNES games)). I'm using assets that are about proportional to the SNES games, just scaled by 2x on each axis. The rest of the screen is filled up by Godot logos on either side that I plan on replacing with wallpapers (as you'd see in one of the Legacy Collections).
+Essentially, I use a resolution of 320x256 (1 tile taller than the PS1 games (which are 1 tile taller than the SNES games)).
+<br>
+
+I'm using assets that are about proportional to the SNES games, just scaled by 2x on each axis.
+The rest of the screen is filled up by Godot logos on either side that I plan on replacing with wallpapers (as you'd see in one of the Legacy Collections).
 
 <br>
 
