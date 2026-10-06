@@ -39,6 +39,8 @@ The rest of the screen is filled up by Godot logos on either side that I plan on
   * In the PS1 games, X can gain dash speed from a normal jump if the player holds the dash button. I've implemented this as an option (boolean).
   * In most X games, if the player inputs the opposite direction while dashing, the dash will be canceled (like the slide in Classic). I chose to implement the Zero/ZX style that allows you to turn around while dashing.
   * I've created an optional "Superdash" (boolean) that lets X dash indefinitely. It also makes X dash so long as the dash button is held, so you can dash constantly in other words.
+    * Note that by virtue of how I implemented the superdash, it supersedes the 'ps_jump_dash_enabled' flag, so it'll have the PS1 dash jump even if 'ps_jump_dash_enabled' is false.
+    * This doesn't go the other way around, however. Having 'ps_jump_dash_enabled' set to true while having 'super_dash_enabled' set to false will *only* give you the PS1-styled dash jump, just as you'd expect.
   * Dashing shortens the player's hurtbox in every implementation of a post-Classic title, but some of them (Zero/ZX) also make the collider wider. The SNES and PSX X games don't, and this is what I follow.
   * However, unlike any implementation of the dash seen before, the dash in this project also allows X to traverse between 1-tile gaps like the Classic slide. Naturally, the collider shortens to allow this, although from my testing, I don't believe that the actual collider of the dash gets shorter in any Mega Man game, just the hurtbox. I can definitely say that the collider *doesn't* get shorter in the SNES games and MHX, as you can get pushed by the Axe Max's logs even while dashing beneath them.
 * Slopes
@@ -67,6 +69,7 @@ The rest of the screen is filled up by Godot logos on either side that I plan on
   * Last for exactly 1.5 second (90 frames at 60 Hz) by default. This is slightly inaccurate to the SNES games which have an i-frame period of 93 frames. Although, the Zero/ZX games use 90 frames.
 * Jump Buffer
   * A side effect of the jump buffer is that it lets the player do dash jumps as long as the dash button is held while the buffered jump starts. This nearly perfectly resembles the frame-perfect chained dash jumps of the Zero/ZX games. This wasn't an intentional design decision, just a neat coincidence. It *is* pretty inconsistent on slopes, though, whether you're going up or down. (And I *do* mean "inconsistent". I have no idea why the same slope will or won't let you do it.)
+    * Naturally, having the superdash enabled gets rid of any inconsistencies regarding the buffered dash jump on slopes.
   * Do note however, that in *my* version, the dash button *needs* to be held to get the dash jump, whereas in the Zero/ZX games, the dash button *doesn't* strangely enough.
 * Dash Buffer
   * Mechanically identical to the jump buffer, but instead works for dashing. If you press the dash button while falling, if you keep the button held as you land and the timer hasn't yet run out, you'll dash immediately.
