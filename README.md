@@ -66,10 +66,16 @@ The rest of the screen is filled up by Godot logos on either side that I plan on
 * Invincibility Frames
   * Last for exactly 1.5 second (90 frames at 60 Hz) by default. This is slightly inaccurate to the SNES games which have an i-frame period of 93 frames. Although, the Zero/ZX games use 90 frames.
 * Jump Buffer
-  * A side effect of the jump buffer is that it lets the player do dash jumps as long as the dash button is held while the buffered jump starts. This nearly perfectly resembles the frame-perfect chained dash jumps of the Zero/ZX games. This wasn't an intentional design decision, just a neat coincidence.
+  * A side effect of the jump buffer is that it lets the player do dash jumps as long as the dash button is held while the buffered jump starts. This nearly perfectly resembles the frame-perfect chained dash jumps of the Zero/ZX games. This wasn't an intentional design decision, just a neat coincidence. It *is* pretty inconsistent on slopes, though, whether you're going up or down. (And I *do* mean "inconsistent". I have no idea why the same slope will or won't let you do it.)
   * Do note however, that in *my* version, the dash button *needs* to be held to get the dash jump, whereas in the Zero/ZX games, the dash button *doesn't* strangely enough.
+* Dash Buffer
+  * Mechanically identical to the jump buffer, but instead works for dashing. If you press the dash button while falling, if you keep the button held as you land and the timer hasn't yet run out, you'll dash immediately.
+  * Works during knockback.
+  * I've only just implemented this (~2:00 AM - October 6) so you won't find it in any of the currently uploaded versions.
+  * I'd better remember to delete that last point (and this one) once I do upload a new version, or I'll look quite the fool... an *April* fool, as it is. 
 * Coyote Timer
   * Note that you probably won't notice it if you just walk off of a ledge, as X will most likely wall jump instead. It's more noticeable with the dash since you get out of near-wall range sooner. Though do note using my default values, it IS possible to do a coyote jump without dashing.
+
 * Basic Hitbox/Hurtbox System
 * Dummy Enemy
   * Damages the player
