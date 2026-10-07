@@ -3,14 +3,14 @@ Mega Man X-styled character controller in Godot 4.x
 
 Current Godot version: 4.7.2
 
-Current project version: 0.3.1
+Current project version: 0.3.2
 * I'm using the semantic versioning of "Major.Minor.Patch" with the idea that version 1.0.0 will be the finished version of the game I'm building off of this (an X1 remake with two sidegames).
 * The minor version can essentially be thought of as a *major* version in the project's development, i.e.
   * 0.1.x used a resolution of 320x240 and was closer to an actual SNES X game.
   * 0.2.x introduced the 640x512 gameplay resolution, as well as additions to the character controller and the implementation of hit/hurtboxes.
   * 0.3.x was where I did a complete overhaul on shooting and reworked the combat system (Variable Weapon System and hitboxes/hurtboxes).
+    * Seeing as I'm still on this version, I'm expecting each patch version to add a new Special Weapon.
   * I'm anticipating for 0.4.x to have a major focus on designing enemies and their behaviors.
-  * I'll probably focus on implementing more Special Weapons for 0.5.x, as I've already finalized the system itself. Likely there'll be a new Special Weapon per patch version.
 <br>
 
 Base resolution: 960x540 pixels
@@ -74,8 +74,6 @@ The rest of the screen is filled up by Godot logos on either side that I plan on
 * Dash Buffer
   * Mechanically identical to the jump buffer, but instead works for dashing. If you press the dash button while falling, if you keep the button held as you land and the timer hasn't yet run out, you'll dash immediately.
   * Works during knockback.
-  * I've only just implemented this (~2:00 AM - October 6) so you won't find it in any of the currently uploaded versions.
-  * I'd better remember to delete that last point (and this one) once I do upload a new version, or I'll look quite the fool... an *April* fool, as it is. 
 * Coyote Timer
   * Note that you probably won't notice it if you just walk off of a ledge, as X will most likely wall jump instead. It's more noticeable with the dash since you get out of near-wall range sooner. Though do note using my default values, it IS possible to do a coyote jump without dashing.
 
