@@ -66,7 +66,7 @@ The rest of the screen is filled up by Godot logos on either side that I plan on
   * If X gets hit while sliding down a wall, he gets knocked off of the wall, but is able to grab it immediately in the SNES/GBC games. I've implemented this. In all of the other X(-esque) games, the player can't re-grab the wall *at all*.
   * X can wall jump out of the knockback state if he's close enough to a wall, though this behavior isn't in ANY post-Classic Mega Man title.
 * Invincibility Frames
-  * Last for exactly 1.5 second (90 frames at 60 Hz) by default. This is slightly inaccurate to the SNES games which have an i-frame period of 93 frames. Although, the Zero/ZX games use 90 frames.
+  * Last for exactly 1.5 seconds (90 frames at 60 Hz) by default. This is slightly inaccurate to the SNES games which have an i-frame period of 93 frames. Although, the Zero/ZX games use 90 frames.
 * Jump Buffer
   * A side effect of the jump buffer is that it lets the player do dash jumps as long as the dash button is held while the buffered jump starts. This nearly perfectly resembles the frame-perfect chained dash jumps of the Zero/ZX games. This wasn't an intentional design decision, just a neat coincidence. It *is* pretty inconsistent on slopes, though, whether you're going up or down. (And I *do* mean "inconsistent". I have no idea why the same slope will or won't let you do it.)
     * Naturally, having the superdash enabled gets rid of any inconsistencies regarding the buffered dash jump on slopes.
