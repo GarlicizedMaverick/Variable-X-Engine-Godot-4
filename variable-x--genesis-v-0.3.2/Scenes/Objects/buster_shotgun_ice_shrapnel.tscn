@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://xmaf8xcfs5jt"]
+
+[ext_resource type="Script" uid="uid://brn0mrff2qtup" path="res://Scripts/buster_shotgun_ice_shrapnel.gd" id="1_jpk4c"]
+[ext_resource type="Texture2D" uid="uid://64ujyjvx00lv" path="res://Graphics/Player Weapons/ShotgunIce_Shrapnel_demo_4bpp.png" id="2_yfskg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lte3u"]
+size = Vector2(12, 12)
+
+[node name="BusterShotgunIceShrapnel" type="Area2D" unique_id=1315237141]
+collision_layer = 32
+collision_mask = 8
+script = ExtResource("1_jpk4c")
+identifier = "Shotgun Ice Shrapnel"
+type = 2
+one_shot = true
+metadata/_custom_type_script = "uid://duxb6lx13vga1"
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1944122020]
+texture = ExtResource("2_yfskg")
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=2050681058]
+shape = SubResource("RectangleShape2D_lte3u")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1263834771]
+rect = Rect2(-7, -7, 14, 14)
