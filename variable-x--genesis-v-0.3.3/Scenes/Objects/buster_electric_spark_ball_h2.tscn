@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://cq7j3n0xlb8ke"]
+
+[ext_resource type="Script" uid="uid://cm2krnrcvxij0" path="res://Scripts/Player Weapons/MMX/buster_electric_spark_ball_h2.gd" id="1_bod2h"]
+[ext_resource type="Texture2D" uid="uid://dy0bjwnyvt46s" path="res://Graphics/Player Weapons/ElectricSparkBall_1_demo_4bpp.png" id="2_esnyy"]
+[ext_resource type="Texture2D" uid="uid://cskutxvh2r1kk" path="res://Graphics/Player Weapons/ElectricSparkBall_3_demo_4bpp.png" id="3_eisfu"]
+[ext_resource type="Texture2D" uid="uid://cdq74olnihvby" path="res://Graphics/Player Weapons/ElectricSparkBall_2_demo_4bpp.png" id="4_mwc3d"]
+[ext_resource type="Texture2D" uid="uid://b0dog3mys1pls" path="res://Graphics/Player Weapons/ElectricSparkBall_Hit1_demo_4bpp.png" id="5_5gaik"]
+[ext_resource type="Texture2D" uid="uid://dtpqr8g1ouih3" path="res://Graphics/Player Weapons/ElectricSparkBall_Hit2_demo_4bpp.png" id="6_cbfrs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rg8c5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_esnyy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_eisfu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_esnyy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mwc3d")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_mwc3d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5gaik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cbfrs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5gaik")
+}],
+"loop": 1,
+"name": &"hit",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bod2h"]
+size = Vector2(24, 24)
+
+[node name="BusterElectricSparkBallH2" type="Area2D" unique_id=1517358223]
+collision_layer = 32
+collision_mask = 8
+script = ExtResource("1_bod2h")
+identifier = "Electric Spark Ball H2"
+type = 4
+metadata/_custom_type_script = "uid://duxb6lx13vga1"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=70996809]
+sprite_frames = SubResource("SpriteFrames_rg8c5")
+animation = &"hit"
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=749138462]
+shape = SubResource("RectangleShape2D_bod2h")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=300020798]
+rect = Rect2(-24, -24, 48, 48)

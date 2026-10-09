@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://dx08ao3t1x0nq"]
+
+[ext_resource type="Script" uid="uid://drmvnd85dedmw" path="res://Scripts/Player Weapons/MMX/buster_rolling_shield.gd" id="1_ph2wy"]
+[ext_resource type="Texture2D" uid="uid://cqp2myqttrq86" path="res://Graphics/Player Weapons/RollingShield_demo.png" id="2_ly62b"]
+[ext_resource type="Texture2D" uid="uid://db0qp4vx3e26h" path="res://Graphics/Player Weapons/RollingShield_MuzzleFlash_demo.png" id="3_dqsiq"]
+[ext_resource type="Script" uid="uid://dxqhsns2qbce0" path="res://Scripts/hurtbox2d.gd" id="4_dqsiq"]
+[ext_resource type="Script" uid="uid://duxb6lx13vga1" path="res://Scripts/hitbox2d.gd" id="4_ly62b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xeecd"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bje1e"]
+radius = 32.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rg8c5"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xeecd"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bje1e"]
+size = Vector2(2, 2)
+
+[node name="BusterRollingShield" type="CharacterBody2D" unique_id=1457491307]
+collision_layer = 32
+floor_snap_length = 4.0
+safe_margin = 1.0
+script = ExtResource("1_ph2wy")
+
+[node name="MuzzleFlashSprite" type="Sprite2D" parent="." unique_id=1308323470]
+modulate = Color(1, 1, 1, 0.7529412)
+texture = ExtResource("3_dqsiq")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1589178773]
+texture = ExtResource("2_ly62b")
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=2086516338]
+shape = SubResource("CircleShape2D_xeecd")
+
+[node name="HurtBox2D" type="Area2D" parent="." unique_id=1803169176]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("4_dqsiq")
+metadata/_custom_type_script = "uid://dxqhsns2qbce0"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox2D" unique_id=1991451363]
+shape = SubResource("CircleShape2D_bje1e")
+
+[node name="HitBox2D" type="Area2D" parent="." unique_id=1742777092]
+collision_layer = 32
+collision_mask = 8
+script = ExtResource("4_ly62b")
+identifier = "Rolling Shield"
+continuous = true
+metadata/_custom_type_script = "uid://duxb6lx13vga1"
+
+[node name="Collider" type="CollisionShape2D" parent="HitBox2D" unique_id=1437103182]
+shape = SubResource("RectangleShape2D_rg8c5")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=958804990]
+rect = Rect2(-32, -32, 64, 64)
+
+[node name="Sensors" type="Node2D" parent="." unique_id=1795833232]
+visible = false
+
+[node name="RayWallLeftTop" type="RayCast2D" parent="Sensors" unique_id=1361493823]
+position = Vector2(0, -32)
+target_position = Vector2(-33, 0)
+
+[node name="RayWallLeftCenter" type="RayCast2D" parent="Sensors" unique_id=988435433]
+target_position = Vector2(-33, 0)
+
+[node name="RayWallLeftBottom" type="RayCast2D" parent="Sensors" unique_id=600837095]
+position = Vector2(0, 32)
+target_position = Vector2(-33, 0)
+
+[node name="RayWallRightTop" type="RayCast2D" parent="Sensors" unique_id=1444584386]
+position = Vector2(0, -32)
+target_position = Vector2(33, 0)
+
+[node name="RayWallRightCenter" type="RayCast2D" parent="Sensors" unique_id=186325247]
+target_position = Vector2(33, 0)
+
+[node name="RayWallRightBottom" type="RayCast2D" parent="Sensors" unique_id=1695814991]
+position = Vector2(0, 32)
+target_position = Vector2(33, 0)
+
+[node name="CrushDetector" type="Area2D" parent="Sensors" unique_id=409545583]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sensors/CrushDetector" unique_id=858014289]
+visible = false
+shape = SubResource("RectangleShape2D_xeecd")
+
+[node name="UncrushLeft" type="Area2D" parent="Sensors" unique_id=974581458]
+position = Vector2(-34, 0)
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sensors/UncrushLeft" unique_id=1177579844]
+shape = SubResource("RectangleShape2D_bje1e")
+
+[node name="UncrushRight" type="Area2D" parent="Sensors" unique_id=1499753285]
+position = Vector2(34, 0)
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sensors/UncrushRight" unique_id=668820029]
+shape = SubResource("RectangleShape2D_bje1e")
+
+[node name="UncrushTop" type="Area2D" parent="Sensors" unique_id=739505401]
+position = Vector2(0, -34)
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sensors/UncrushTop" unique_id=645640757]
+shape = SubResource("RectangleShape2D_bje1e")
+
+[node name="UncrushBottom" type="Area2D" parent="Sensors" unique_id=208659986]
+position = Vector2(0, 34)
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sensors/UncrushBottom" unique_id=1779256501]
+shape = SubResource("RectangleShape2D_bje1e")
+
+[node name="FlipVTimer" type="Timer" parent="." unique_id=1334435064]
+process_callback = 0
+wait_time = 0.05
+autostart = true
+
+[node name="MuzzleFlashTimer" type="Timer" parent="." unique_id=2076334935]
+process_callback = 0
+wait_time = 0.1
+one_shot = true
+autostart = true

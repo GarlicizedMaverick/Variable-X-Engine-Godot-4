@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dtvcsr3g6kviu"]
+
+[ext_resource type="Script" uid="uid://bwskrxhcow8g4" path="res://Scripts/Player Weapons/MMX/buster_electric_spark_ball_v.gd" id="1_kqni2"]
+[ext_resource type="PackedScene" uid="uid://cq7j3n0xlb8ke" path="res://Scenes/Objects/buster_electric_spark_ball_h2.tscn" id="2_84qmm"]
+[ext_resource type="Texture2D" uid="uid://dy0bjwnyvt46s" path="res://Graphics/Player Weapons/ElectricSparkBall_1_demo_4bpp.png" id="2_i8xcq"]
+[ext_resource type="Texture2D" uid="uid://cskutxvh2r1kk" path="res://Graphics/Player Weapons/ElectricSparkBall_3_demo_4bpp.png" id="3_84qmm"]
+[ext_resource type="Texture2D" uid="uid://cdq74olnihvby" path="res://Graphics/Player Weapons/ElectricSparkBall_2_demo_4bpp.png" id="4_ctdgi"]
+[ext_resource type="Texture2D" uid="uid://b0dog3mys1pls" path="res://Graphics/Player Weapons/ElectricSparkBall_Hit1_demo_4bpp.png" id="5_x2uhj"]
+[ext_resource type="Texture2D" uid="uid://dtpqr8g1ouih3" path="res://Graphics/Player Weapons/ElectricSparkBall_Hit2_demo_4bpp.png" id="6_645ug"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rg8c5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i8xcq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_84qmm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_i8xcq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ctdgi")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ctdgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_x2uhj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_645ug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_x2uhj")
+}],
+"loop": 1,
+"name": &"hit",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8xcq"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84qmm"]
+size = Vector2(1, 36)
+
+[node name="BusterElectricSparkBallV" type="Area2D" unique_id=1517358223]
+collision_layer = 32
+collision_mask = 8
+script = ExtResource("1_kqni2")
+spark_ball_h2 = ExtResource("2_84qmm")
+identifier = "Electric Spark Ball V"
+type = 4
+one_shot = true
+metadata/_custom_type_script = "uid://duxb6lx13vga1"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=70996809]
+sprite_frames = SubResource("SpriteFrames_rg8c5")
+animation = &"hit"
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=749138462]
+shape = SubResource("RectangleShape2D_i8xcq")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=300020798]
+rect = Rect2(-24, -24, 48, 48)
+
+[node name="WallDetector" type="Area2D" parent="." unique_id=41487319]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallDetector" unique_id=687989352]
+shape = SubResource("RectangleShape2D_84qmm")
