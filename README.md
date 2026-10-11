@@ -12,7 +12,7 @@ Current project version: 0.3.4
     * Seeing as I'm still on this version, I'm expecting each patch version to add a new Special Weapon.
   * ~~I'm anticipating for 0.4.x to have a major focus on designing enemies and their behaviors.~~
   * Changed my mind about 0.4.x. I'm going to focus on the armor parts/system next.
-  * I'm anticipating for 0.5.x to have a major focus on designing enemies and their behaviors
+  * I'm anticipating for 0.5.x to have a major focus on designing enemies and their behaviors.
 <br>
 
 Base resolution: 960x540 pixels
