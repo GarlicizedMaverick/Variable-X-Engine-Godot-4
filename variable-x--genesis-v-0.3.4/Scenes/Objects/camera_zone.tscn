@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://yic5482melvd"]
+
+[ext_resource type="Script" uid="uid://ueqhfaatdcyb" path="res://Scripts/Camera/camera_zone.gd" id="1_heas7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rg8c5"]
+size = Vector2(32, 32)
+
+[node name="CameraZone" type="Area2D" unique_id=367363479]
+collision_layer = 16
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_heas7")
+duration = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=915621689]
+shape = SubResource("RectangleShape2D_rg8c5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

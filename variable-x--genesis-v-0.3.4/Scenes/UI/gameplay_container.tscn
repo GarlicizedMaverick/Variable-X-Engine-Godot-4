@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://owb8vwfjw3px"]
+
+[ext_resource type="Texture2D" uid="uid://cpkc7q7c73iab" path="res://Graphics/icon.svg" id="1_1qyw3"]
+[ext_resource type="Texture2D" uid="uid://bwk7ejr1mu8uv" path="res://Graphics/Monitor_L.png" id="2_wcgup"]
+[ext_resource type="Texture2D" uid="uid://bdw7vtipkfeg" path="res://Graphics/Monitor_T.png" id="3_35chh"]
+[ext_resource type="Texture2D" uid="uid://6bapleub4b38" path="res://Graphics/Monitor_B.png" id="4_5mx6c"]
+[ext_resource type="PackedScene" uid="uid://408m5cojxf5n" path="res://Scenes/Stages/test_stage_chill_penguin.tscn" id="5_1qyw3"]
+
+[node name="GameplayContainer" type="Node" unique_id=461531776]
+
+[node name="WallpaperLeft" type="TextureRect" parent="." unique_id=1153763297]
+custom_minimum_size = Vector2(144, 540)
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 128.0
+grow_vertical = 2
+texture = ExtResource("1_1qyw3")
+
+[node name="WallpaperRight" type="TextureRect" parent="." unique_id=868709879]
+custom_minimum_size = Vector2(144, 540)
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("1_1qyw3")
+
+[node name="WindowLeft" type="TextureRect" parent="." unique_id=1372902268]
+custom_minimum_size = Vector2(16, 512)
+custom_maximum_size = Vector2(16, 512)
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 128.0
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(144, 0)
+texture = ExtResource("2_wcgup")
+
+[node name="WindowRight" type="TextureRect" parent="." unique_id=1612600079]
+custom_minimum_size = Vector2(16, 512)
+custom_maximum_size = Vector2(16, 512)
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+grow_horizontal = 0
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-144, 0)
+texture = ExtResource("2_wcgup")
+flip_h = true
+
+[node name="WindowTop" type="TextureRect" parent="." unique_id=1348831921]
+custom_minimum_size = Vector2(672, 14)
+custom_maximum_size = Vector2(672, 14)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 128.0
+grow_horizontal = 2
+texture = ExtResource("3_35chh")
+
+[node name="WindowBottom" type="TextureRect" parent="." unique_id=433028001]
+custom_minimum_size = Vector2(672, 14)
+custom_maximum_size = Vector2(672, 14)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_5mx6c")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1031099213]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -256.0
+offset_right = 320.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=2015168137]
+disable_3d = true
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(640, 512)
+render_target_update_mode = 4
+
+[node name="TestStageChillPenguin" parent="SubViewportContainer/SubViewport" unique_id=1766175483 instance=ExtResource("5_1qyw3")]
