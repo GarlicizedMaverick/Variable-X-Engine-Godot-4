@@ -3,14 +3,16 @@ Mega Man X-styled character controller in Godot 4.x
 
 Current Godot version: 4.7.2
 
-Current project version: 0.3.3
+Current project version: 0.3.4
 * I'm using the semantic versioning of "Major.Minor.Patch" with the idea that version 1.0.0 will be the finished version of the game I'm building off of this (an X1 remake with two sidegames).
 * The minor version can essentially be thought of as a *major* version in the project's development, i.e.
   * 0.1.x used a resolution of 320x240 and was closer to an actual SNES X game.
   * 0.2.x introduced the 640x512 gameplay resolution, as well as additions to the character controller and the implementation of hit/hurtboxes.
   * 0.3.x was where I did a complete overhaul on shooting and reworked the combat system (Variable Weapon System and hitboxes/hurtboxes).
     * Seeing as I'm still on this version, I'm expecting each patch version to add a new Special Weapon.
-  * I'm anticipating for 0.4.x to have a major focus on designing enemies and their behaviors.
+  * ~~I'm anticipating for 0.4.x to have a major focus on designing enemies and their behaviors.~~
+  * Changed my mind about 0.4.x. I'm going to focus on the armor parts/system next.
+  * I'm anticipating for 0.5.x to have a major focus on designing enemies and their behaviors.
 <br>
 
 Base resolution: 960x540 pixels
@@ -81,16 +83,23 @@ The rest of the screen is filled up by Godot logos on either side that I plan on
   * Damages the player
   * Takes damage from player weapons
 * Weapon System
+* Charging
 * Lemons
   * Lemons don't go through walls like in X5 and onwards.
   * Dash Lemons are a separate entity.
   * In the SNES games, lemons start at a speed of 4 p/f and accelerate at a rate of 0.25 p/f^2 to a max speed of 6 p/f. I've multiplied these values by 320/256 (5/4) since I use a base width of 320 px rather than the SNES's 256 px.
+* Level 1 Charged Shot
+  * Pierces through enemies, but only if it does enough damage to destroy them.
+  * These shots don't go through walls, unlike the original version.
+* Level 2 Charged Shot
+  * Functionally identical to the Level 1 Charged Shot
 * Shotgun Ice
   * Like with lemons, I've sped them (and their shrapnel) up by a factor of 5/4.
 * Electric Spark
   * Unlike the original, it splits twice: once vertically, but then once more horizontally.
 * Rolling Shield
-  * TODO: I don't feel like listing all the changes right now.
+  * TODO: I don't feel like listing all the changes right now...
+  * Yeah, still don't feel like it...
 * Custom Damage Tables
   * One for enemies/bosses, one for the player.
 * Basic Camera System
