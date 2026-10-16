@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://trer2c16aqs6"]
+
+[ext_resource type="Script" uid="uid://dj74ce85gjnb7" path="res://Scripts/Player Weapons/X-Buster/buster_lime.gd" id="1_3b0fx"]
+[ext_resource type="Texture2D" uid="uid://c4y0mb3k0tvta" path="res://Graphics/Player Weapons/lime_2_demo.png" id="2_stxwe"]
+[ext_resource type="Texture2D" uid="uid://gvryfgdqn4ll" path="res://Graphics/Player Weapons/lime_3_demo.png" id="3_uldcd"]
+[ext_resource type="Texture2D" uid="uid://b17udb4cdhctg" path="res://Graphics/Player Weapons/lime_4_demo.png" id="4_3losu"]
+[ext_resource type="Texture2D" uid="uid://bbnn83x3p5n8k" path="res://Graphics/Player Weapons/lime_5_demo.png" id="5_jqppt"]
+[ext_resource type="Texture2D" uid="uid://c1raj4857e7um" path="res://Graphics/Player Weapons/lime_6_demo.png" id="6_c8a5s"]
+[ext_resource type="Texture2D" uid="uid://dkkwqvityeo0p" path="res://Graphics/Player Weapons/lime_7_demo.png" id="7_r2rvs"]
+[ext_resource type="Texture2D" uid="uid://j1o3iyfa305c" path="res://Graphics/Player Weapons/lime_1_demo.png" id="8_b5jfk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rg8c5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_stxwe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uldcd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3losu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jqppt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_c8a5s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_r2rvs")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_b5jfk")
+}],
+"loop": 1,
+"name": &"spawn",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfels"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5ilo"]
+size = Vector2(1, 1)
+
+[node name="BusterLime" type="Area2D" unique_id=1302635736]
+collision_layer = 32
+collision_mask = 8
+script = ExtResource("1_3b0fx")
+identifier = "Lime"
+metadata/_custom_type_script = "uid://duxb6lx13vga1"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=446497255]
+sprite_frames = SubResource("SpriteFrames_rg8c5")
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1451446574]
+shape = SubResource("RectangleShape2D_bfels")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=740443516]
+rect = Rect2(-16, -8, 32, 16)
+show_rect = false
+
+[node name="WallDetector" type="Area2D" parent="." unique_id=2025826395]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallDetector" unique_id=378669404]
+shape = SubResource("RectangleShape2D_h5ilo")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
