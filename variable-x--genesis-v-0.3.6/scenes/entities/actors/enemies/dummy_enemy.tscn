@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://37je2d1e6cdo"]
+
+[ext_resource type="Script" uid="uid://dw3mw3vmdk68p" path="res://scripts/enemies/dummy_enemy.gd" id="1_o85qf"]
+[ext_resource type="Script" uid="uid://n5dyg3be7t8k" path="res://scripts/resources/damage_tables/mmx_enemy_damage_table.gd" id="3_w0t3a"]
+[ext_resource type="Texture2D" uid="uid://cpkc7q7c73iab" path="res://graphics/icon.svg" id="4_8tx2w"]
+[ext_resource type="Script" uid="uid://duxb6lx13vga1" path="res://scripts/hitbox2d.gd" id="5_ooc6f"]
+[ext_resource type="Script" uid="uid://dxqhsns2qbce0" path="res://scripts/hurtbox2d.gd" id="6_0bc4a"]
+
+[sub_resource type="Resource" id="Resource_nsgt8"]
+script = ExtResource("3_w0t3a")
+damage_table = Dictionary[String, float]({
+"Blueberry": 4.0,
+"Boomerang Cutter": 60.0,
+"Boomerang Cutter Charged": 240.0,
+"Chameleon Sting": 240.0,
+"Dash Lemon": 2.0,
+"Electric Spark Ball H1": 3.0,
+"Electric Spark Ball H2": 4.0,
+"Electric Spark Ball V": 3.0,
+"Electric Spark Charged": 240.0,
+"Fire Wave": 60.0,
+"Hadouken": 64.0,
+"Hadouken Weak": 32.0,
+"Homing Torpedo": 3.0,
+"Homing Torpedo Charged": 6.0,
+"Lemon": 1.0,
+"Lime": 3.0,
+"Pseudoken": 32.0,
+"Raspberry": 2.0,
+"Rolling Shield": 20.0,
+"Rolling Shield Charged": 4.0,
+"Shotgun Ice": 3.0,
+"Shotgun Ice Shrapnel": 1.0,
+"Storm Tornado": 60.0,
+"Storm Tornado Charged": 120.0
+})
+metadata/_custom_type_script = "uid://n5dyg3be7t8k"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rg8c5"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bje1e"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xeecd"]
+size = Vector2(64, 64)
+
+[node name="DummyEnemy" type="CharacterBody2D" unique_id=1756077245]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_o85qf")
+damage_table = SubResource("Resource_nsgt8")
+max_health = 8.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1351548814]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_8tx2w")
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1789628324]
+shape = SubResource("RectangleShape2D_rg8c5")
+
+[node name="HitBox2D" type="Area2D" parent="." unique_id=696640451]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("5_ooc6f")
+metadata/_custom_type_script = "uid://duxb6lx13vga1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox2D" unique_id=1586033936]
+shape = SubResource("RectangleShape2D_bje1e")
+
+[node name="HurtBox2D" type="Area2D" parent="." unique_id=1634302377]
+collision_layer = 8
+collision_mask = 32
+script = ExtResource("6_0bc4a")
+metadata/_custom_type_script = "uid://dxqhsns2qbce0"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox2D" unique_id=1928052583]
+shape = SubResource("RectangleShape2D_xeecd")
+
+[connection signal="damage_taken" from="HurtBox2D" to="." method="_on_damage_taken"]

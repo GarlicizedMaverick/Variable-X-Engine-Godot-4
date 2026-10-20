@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b4bic5reumlil"]
+
+[ext_resource type="Script" uid="uid://datgp4qrbsq0" path="res://scripts/debug/debug_overlay.gd" id="1_hwc3t"]
+
+[node name="DebugOverlay" type="Label" unique_id=1905175195]
+mouse_behavior_recursive = 1
+theme_override_constants/line_spacing = -4
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 14
+script = ExtResource("1_hwc3t")

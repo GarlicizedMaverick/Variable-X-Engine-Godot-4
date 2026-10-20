@@ -1,0 +1,229 @@
+[gd_scene format=3 uid="uid://dm0tfcl1c4o2e"]
+
+[ext_resource type="Script" uid="uid://txqcauq6wn3i" path="res://scripts/variable_x.gd" id="1_cj81f"]
+[ext_resource type="PackedScene" uid="uid://cg4cpbw4hg6ub" path="res://scenes/ui/window_layer.tscn" id="2_o6gxc"]
+[ext_resource type="PackedScene" uid="uid://b4bic5reumlil" path="res://scenes/ui/debug_overlay.tscn" id="6_by8pd"]
+
+[node name="VariableX" type="Node" unique_id=1968163354]
+process_mode = 3
+script = ExtResource("1_cj81f")
+
+[node name="SplashScreenContainer" type="Node" parent="." unique_id=357808221]
+
+[node name="MainestMenu" type="Node" parent="." unique_id=1536726597]
+
+[node name="MegaManX" type="Node" parent="." unique_id=53673802]
+process_mode = 3
+
+[node name="MainMenu" type="Node" parent="MegaManX" unique_id=1033553474]
+
+[node name="Systems" type="Node" parent="MegaManX" unique_id=1221208928]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MegaManX" unique_id=1804141348]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -256.0
+offset_right = 320.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="MegaManX/SubViewportContainer" unique_id=853435624]
+process_mode = 3
+disable_3d = true
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(640, 512)
+render_target_update_mode = 4
+
+[node name="World" type="Node2D" parent="MegaManX/SubViewportContainer/SubViewport" unique_id=1967006876]
+process_mode = 1
+
+[node name="StageRoot" type="Node2D" parent="MegaManX/SubViewportContainer/SubViewport/World" unique_id=38363603]
+
+[node name="EntityRoot" type="Node2D" parent="MegaManX/SubViewportContainer/SubViewport/World" unique_id=970431913]
+
+[node name="VFXRoot" type="Node2D" parent="MegaManX/SubViewportContainer/SubViewport/World" unique_id=1149184156]
+
+[node name="HUDLayer" type="CanvasLayer" parent="MegaManX" unique_id=741711390]
+process_mode = 1
+layer = 16
+
+[node name="HUDRoot" type="Control" parent="MegaManX/HUDLayer" unique_id=263226262]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="WindowLayer" parent="MegaManX/HUDLayer/HUDRoot" unique_id=2137189286 instance=ExtResource("2_o6gxc")]
+layout_mode = 0
+
+[node name="TitleCards" type="Control" parent="MegaManX/HUDLayer/HUDRoot" unique_id=1658786593]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PauseLayer" type="CanvasLayer" parent="MegaManX" unique_id=1869889023]
+process_mode = 2
+layer = 32
+
+[node name="PauseRoot" type="Control" parent="MegaManX/PauseLayer" unique_id=2135346414]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TransitionLayer" type="CanvasLayer" parent="MegaManX" unique_id=1121062257]
+process_mode = 3
+layer = 64
+
+[node name="TransitionRoot" type="Control" parent="MegaManX/TransitionLayer" unique_id=829824673]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="DebugLayer" type="CanvasLayer" parent="MegaManX" unique_id=1239852096]
+process_mode = 3
+layer = 128
+
+[node name="DebugRoot" type="Control" parent="MegaManX/DebugLayer" unique_id=1697922950]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="DebugOverlay" parent="MegaManX/DebugLayer/DebugRoot" unique_id=1905175195 instance=ExtResource("6_by8pd")]
+layout_mode = 0
+offset_right = 1.0
+offset_bottom = 20.0
+
+[node name="EverlastingPrelude" type="Node" parent="." unique_id=286280442]
+process_mode = 3
+
+[node name="Systems" type="Node" parent="EverlastingPrelude" unique_id=289363305]
+
+[node name="World" type="Node2D" parent="EverlastingPrelude" unique_id=790556413]
+process_mode = 1
+
+[node name="StageRoot" type="Node2D" parent="EverlastingPrelude/World" unique_id=392628494]
+
+[node name="EntityRoot" type="Node2D" parent="EverlastingPrelude/World" unique_id=1135292813]
+
+[node name="VFXRoot" type="Node2D" parent="EverlastingPrelude/World" unique_id=783626537]
+
+[node name="HUDLayer" type="CanvasLayer" parent="EverlastingPrelude" unique_id=1390187642]
+process_mode = 1
+layer = 16
+
+[node name="HUDRoot" type="Control" parent="EverlastingPrelude/HUDLayer" unique_id=835237949]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="PauseLayer" type="CanvasLayer" parent="EverlastingPrelude" unique_id=1310275763]
+process_mode = 2
+layer = 32
+
+[node name="PauseRoot" type="Control" parent="EverlastingPrelude/PauseLayer" unique_id=67405272]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TransitionLayer" type="CanvasLayer" parent="EverlastingPrelude" unique_id=932050425]
+process_mode = 3
+layer = 64
+
+[node name="TransitionRoot" type="Control" parent="EverlastingPrelude/TransitionLayer" unique_id=1587059599]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="DebugLayer" type="CanvasLayer" parent="EverlastingPrelude" unique_id=1360249220]
+process_mode = 3
+layer = 128
+
+[node name="DebugRoot" type="Control" parent="EverlastingPrelude/DebugLayer" unique_id=2139431027]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="IrregularInvestigations" type="Node" parent="." unique_id=851421796]
+process_mode = 3
+
+[node name="Systems" type="Node" parent="IrregularInvestigations" unique_id=987241016]
+
+[node name="World" type="Node2D" parent="IrregularInvestigations" unique_id=120286314]
+process_mode = 1
+
+[node name="StageRoot" type="Node2D" parent="IrregularInvestigations/World" unique_id=898122920]
+
+[node name="EntityRoot" type="Node2D" parent="IrregularInvestigations/World" unique_id=774331830]
+
+[node name="VFXRoot" type="Node2D" parent="IrregularInvestigations/World" unique_id=30851231]
+
+[node name="HUDLayer" type="CanvasLayer" parent="IrregularInvestigations" unique_id=2076826593]
+process_mode = 1
+layer = 16
+
+[node name="HUDRoot" type="Control" parent="IrregularInvestigations/HUDLayer" unique_id=499294429]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="PauseLayer" type="CanvasLayer" parent="IrregularInvestigations" unique_id=113629899]
+process_mode = 2
+layer = 32
+
+[node name="PauseRoot" type="Control" parent="IrregularInvestigations/PauseLayer" unique_id=1497763344]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TransitionLayer" type="CanvasLayer" parent="IrregularInvestigations" unique_id=449823245]
+process_mode = 3
+layer = 64
+
+[node name="TransitionRoot" type="Control" parent="IrregularInvestigations/TransitionLayer" unique_id=790183763]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="DebugLayer" type="CanvasLayer" parent="IrregularInvestigations" unique_id=211360982]
+process_mode = 3
+layer = 128
+
+[node name="DebugRoot" type="Control" parent="IrregularInvestigations/DebugLayer" unique_id=207299222]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ln7jp5anijw4"]
+
+[ext_resource type="Script" uid="uid://dwr8u36mu4awx" path="res://scripts/spawn/spawner.gd" id="1_d7mmf"]
+
+[node name="Spawner" type="Marker2D" unique_id=1361385546]
+gizmo_extents = 16.0
+script = ExtResource("1_d7mmf")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=802626904]
+rect = Rect2(-16, -16, 32, 32)
+
+[node name="RespawnTimer" type="Timer" parent="." unique_id=1970974738]
+process_callback = 0
