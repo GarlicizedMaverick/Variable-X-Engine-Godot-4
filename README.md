@@ -3,7 +3,7 @@ Mega Man X-styled character controller in Godot 4.x
 
 Current Godot version: 4.7.2
 
-Current project version: 0.3.4
+Current project version: 0.3.5
 * I'm using the semantic versioning of "Major.Minor.Patch" with the idea that version 1.0.0 will be the finished version of the game I'm building off of this (an X1 remake with two sidegames).
 * The minor version can essentially be thought of as a *major* version in the project's development, i.e.
   * 0.1.x used a resolution of 320x240 and was closer to an actual SNES X game.
@@ -77,11 +77,20 @@ The rest of the screen is filled up by Godot logos on either side that I plan on
   * Works during knockback.
 * Coyote Timer
   * Note that you probably won't notice it if you just walk off of a ledge, as X will most likely wall jump instead. It's more noticeable with the dash since you get out of near-wall range sooner. Though do note using my default values, it IS possible to do a coyote jump without dashing.
-
 * Basic Hitbox/Hurtbox System
+* Basic Enemy Spawning System
+  * I haphazardly worked on this because I needed a good way to test the Homing Torpedo. Spamming a bunch of enemies in the stage just wasn't cutting it.
+  * In the state that it's in now, it's a bit of a mess. Regardless, it functions properly, allowing you to set whether or not an enemy should spawn only when approached from a certain side of the screen (or any combination of sides).
 * Dummy Enemy
   * Damages the player
   * Takes damage from player weapons
+* "Spiky" Enemy
+  * It's pretty accurate to the original, in both animation and function.
+    * I don't know its exact movement speed, nor jump height, however.
+  * It has a graze area above its normal hitbox, taking less damage to certain projectiles, just like the original
+    * I don't know the exact size of the graze area, however.
+    * Fun Fact: Even the Hadouken won't insta-kill a Spiky if it only hits its graze area. I may or may not keep this functionality.
+  * The most notable change is that when it tumbles over at 1 HP, it will remove its hitbox once it stops moving.
 * Weapon System
 * Charging
 * Lemons
@@ -98,8 +107,12 @@ The rest of the screen is filled up by Godot logos on either side that I plan on
 * Electric Spark
   * Unlike the original, it splits twice: once vertically, but then once more horizontally.
 * Rolling Shield
-  * TODO: I don't feel like listing all the changes right now...
-  * Yeah, still don't feel like it...
+  * Unlike the original, this version of the Rolling Shield continuously deals damage to enemies it's in contact with.
+    * The Rolling Shield has much more health to accommodate for this design change.
+    * It can bounce against walls up to 15 times without getting destroyed, as opposed to the original's 1 bounce.
+  * The Rolling Shield has a slight upward arc when initially spawned.
+    * In addition, if the up action is held while firing it, the Rolling Shield will be sent much higher.
+* Homing Torpedo
 * Custom Damage Tables
   * One for enemies/bosses, one for the player.
 * Basic Camera System
