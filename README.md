@@ -89,6 +89,7 @@ The rest of the screen is filled up by Godot logos on either side that I plan on
     * I don't know its exact movement speed, nor jump height, however.
   * It has a graze area above its normal hitbox, taking less damage to certain projectiles, just like the original
     * I don't know the exact size of the graze area, however.
+    * Fun Fact: Even the Hadouken won't insta-kill a Spiky if it only hits its graze area. I may or may not keep this functionality.
   * The most notable change is that when it tumbles over at 1 HP, it will remove its hitbox once it stops moving.
 * Weapon System
 * Charging
