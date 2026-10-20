@@ -3,7 +3,7 @@ Mega Man X-styled character controller in Godot 4.x
 
 Current Godot version: 4.7.2
 
-Current project version: 0.3.5
+Current project version: 0.3.6
 * I'm using the semantic versioning of "Major.Minor.Patch" with the idea that version 1.0.0 will be the finished version of the game I'm building off of this (an X1 remake with two sidegames).
 * The minor version can essentially be thought of as a *major* version in the project's development, i.e.
   * 0.1.x used a resolution of 320x240 and was closer to an actual SNES X game.
@@ -113,6 +113,13 @@ The rest of the screen is filled up by Godot logos on either side that I plan on
   * The Rolling Shield has a slight upward arc when initially spawned.
     * In addition, if the up action is held while firing it, the Rolling Shield will be sent much higher.
 * Homing Torpedo
+* Boomerang Cutter
+  * It's rather inaccurate in terms of how it follows the player, but functionally gets the job done.
+  * It arcs upward by default, and arcs downward if you hold the down "dpad" input while shooting. (Unlike the original, which only shoots downward if X is also going downward.)
+  * If you hold the up input, all active Boomerang Cutters will spin in place. When the input is released, they will all make a beeline to where X was at the time of the release.
+    * The motion is akin to the Ring Boomerang's return arc from Mega Man 4, but the projectile(s) will travel infinitely along the path, and this action can even be chained for as long as a Boomerang Cutter is onscreen.
+    * Boomerang Cutters can't be grabbed while in their stopped state, but *can* be grabbed in their "beeline" state.
+  * I've yet to implement ammo (I hope I remember to update this line once I do) but I've already set up the Boomerang Cutter to refill the amount of ammo it used when X grabs it (only if it hasn't hit anything, such as in the original).
 * Custom Damage Tables
   * One for enemies/bosses, one for the player.
 * Basic Camera System
