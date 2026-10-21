@@ -120,6 +120,10 @@ The rest of the screen is filled up by Godot logos on either side that I plan on
     * The motion is akin to the Ring Boomerang's return arc from Mega Man 4, but the projectile(s) will travel infinitely along the path, and this action can even be chained for as long as a Boomerang Cutter is onscreen.
     * Boomerang Cutters can't be grabbed while in their stopped state, but *can* be grabbed in their "beeline" state.
   * I've yet to implement ammo (I hope I remember to update this line once I do) but I've already set up the Boomerang Cutter to refill the amount of ammo it used when X grabs it (only if it hasn't hit anything, such as in the original).
+  * [Not yet implemented] Instead of items latching on to Boomerang Cutters to be grabbed by X, I plan on making *them* inexplicably boomerang toward X if they get hit.
+    * This is because of the changes I made to both the cutter's pathing, as well as the possibility of the beeline state making a mess of things (since a cutter will travel infinitely).
+      * Even if I *did* prevent a cutter from despawning as long as it held an item, it could still travel infinitely far away if the player activates its beeline state (and of course, Godot probably wouldn't like that, either).
+    * This also means that a single Boomerang Cutter can "pick up" more than one item.
 * Custom Damage Tables
   * One for enemies/bosses, one for the player.
 * Basic Camera System
