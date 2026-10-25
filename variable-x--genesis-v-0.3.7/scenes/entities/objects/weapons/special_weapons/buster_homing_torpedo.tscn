@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cxc50tvvif1bi"]
+
+[ext_resource type="Script" uid="uid://cnbtj78ng25sn" path="res://scripts/weapons/MMX/buster_homing_torpedo.gd" id="1_5wtdq"]
+[ext_resource type="Texture2D" uid="uid://dslaysi15q4rp" path="res://graphics/actors/player/x/weapons/special_weapons/x1/homing_torpedo/homing_torpedo_demo.png" id="2_5svdv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6jw6"]
+size = Vector2(20, 32)
+
+[node name="BusterHomingTorpedo" type="Area2D" unique_id=853278648]
+z_index = 2
+collision_layer = 32
+collision_mask = 8
+script = ExtResource("1_5wtdq")
+identifier = "Homing Torpedo"
+one_shot = true
+metadata/_custom_type_script = "uid://duxb6lx13vga1"
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1449608459]
+texture = ExtResource("2_5svdv")
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1263339969]
+shape = SubResource("RectangleShape2D_s6jw6")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=221717333]
+rect = Rect2(-48, -48, 96, 96)
+
+[node name="DoNotSeekYetTimer" type="Timer" parent="." unique_id=1645388324]
+process_callback = 0
+wait_time = 0.2
+one_shot = true
+autostart = true
