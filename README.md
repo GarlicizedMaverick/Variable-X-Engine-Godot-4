@@ -1,9 +1,9 @@
 # Variable X Engine [Godot 4]
-Mega Man X-styled character controller in Godot 4.x
+A framework for Mega Man X projects in Godot 4.x
 
 Current Godot version: 4.7.2
 
-Current project version: 0.3.6
+Current project version: 0.3.7
 * I'm using the semantic versioning of "Major.Minor.Patch" with the idea that version 1.0.0 will be the finished version of the game I'm building off of this (an X1 remake with two sidegames).
 * The minor version can essentially be thought of as a *major* version in the project's development, i.e.
   * 0.1.x used a resolution of 320x240 and was closer to an actual SNES X game.
@@ -124,6 +124,9 @@ The rest of the screen is filled up by Godot logos on either side that I plan on
     * This is because of the changes I made to both the cutter's pathing, as well as the possibility of the beeline state making a mess of things (since a cutter will travel infinitely).
       * Even if I *did* prevent a cutter from despawning as long as it held an item, it could still travel infinitely far away if the player activates its beeline state (and of course, Godot probably wouldn't like that, either).
     * This also means that a single Boomerang Cutter can "pick up" more than one item.
+* Chameleon Sting
+  * Pierces through enemies even if it doesn't destroy them.
+  * Can be aimed upward and downward like in Maverick Hunter X.
 * Custom Damage Tables
   * One for enemies/bosses, one for the player.
 * Basic Camera System
