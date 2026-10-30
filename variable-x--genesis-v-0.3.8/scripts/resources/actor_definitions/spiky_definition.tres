@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" format=3 uid="uid://c06y1kfwtehv8"]
+
+[ext_resource type="Script" uid="uid://dpmlpewh1xiy7" path="res://scripts/resources/actor_definitions/enemy_definition.gd" id="1_mffcv"]
+[ext_resource type="Texture2D" uid="uid://d2ynn15wwnpox" path="res://graphics/actors/mmx/enemy/spiky/enemy_spiky_preview.png" id="1_mmo8y"]
+[ext_resource type="PackedScene" uid="uid://cr8igt58kta3l" path="res://scenes/entities/actors/enemies/spiky.tscn" id="2_tqrtg"]
+
+[resource]
+script = ExtResource("1_mffcv")
+scene = ExtResource("2_tqrtg")
+preview_texture = ExtResource("1_mmo8y")
+metadata/_custom_type_script = "uid://dpmlpewh1xiy7"

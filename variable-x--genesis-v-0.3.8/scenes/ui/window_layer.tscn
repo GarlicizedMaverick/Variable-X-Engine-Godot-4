@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://cg4cpbw4hg6ub"]
+
+[ext_resource type="Texture2D" uid="uid://cpkc7q7c73iab" path="res://graphics/icon.svg" id="1_l8v26"]
+[ext_resource type="Texture2D" uid="uid://bwk7ejr1mu8uv" path="res://graphics/monitor_l.png" id="2_ejj45"]
+[ext_resource type="Texture2D" uid="uid://bdw7vtipkfeg" path="res://graphics/monitor_t.png" id="3_fo3ef"]
+[ext_resource type="Texture2D" uid="uid://6bapleub4b38" path="res://graphics/monitor_b.png" id="4_3pelt"]
+
+[node name="WindowLayer" type="Control" unique_id=2137189286]
+editor_description = "Named after the top-most graphical layer in certain retro consoles, such as the SEGA MegaDrive and Nintendo GameBoy. This layer is statically overlayed atop the main game's contents."
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WallpaperLeft" type="TextureRect" parent="." unique_id=508437842]
+custom_minimum_size = Vector2(144, 540)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 144.0
+offset_bottom = 500.0
+grow_vertical = 2
+texture = ExtResource("1_l8v26")
+
+[node name="WallpaperRight" type="TextureRect" parent="." unique_id=324148644]
+custom_minimum_size = Vector2(144, 540)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 776.0
+offset_right = 920.0
+offset_bottom = 500.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("1_l8v26")
+
+[node name="WindowLeft" type="TextureRect" parent="." unique_id=1481674272]
+custom_minimum_size = Vector2(16, 512)
+custom_maximum_size = Vector2(16, 512)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 14.0
+offset_right = 16.0
+offset_bottom = 486.0
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(144, 0)
+texture = ExtResource("2_ejj45")
+
+[node name="WindowRight" type="TextureRect" parent="." unique_id=1683853265]
+custom_minimum_size = Vector2(16, 512)
+custom_maximum_size = Vector2(16, 512)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 904.0
+offset_top = 14.0
+offset_right = 920.0
+offset_bottom = 486.0
+grow_horizontal = 0
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-144, 0)
+texture = ExtResource("2_ejj45")
+flip_h = true
+
+[node name="WindowTop" type="TextureRect" parent="." unique_id=482082315]
+custom_minimum_size = Vector2(672, 14)
+custom_maximum_size = Vector2(672, 14)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 144.0
+offset_right = 776.0
+offset_bottom = 14.0
+grow_horizontal = 2
+texture = ExtResource("3_fo3ef")
+
+[node name="WindowBottom" type="TextureRect" parent="." unique_id=747095599]
+custom_minimum_size = Vector2(672, 14)
+custom_maximum_size = Vector2(672, 14)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 144.0
+offset_top = 486.0
+offset_right = 776.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_3pelt")

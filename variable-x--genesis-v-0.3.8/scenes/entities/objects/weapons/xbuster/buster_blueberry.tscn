@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://3ike5ce3xuju"]
+
+[ext_resource type="Script" uid="uid://dxx4wgru7doxk" path="res://scripts/weapons/xbuster/buster_blueberry.gd" id="1_ygp2s"]
+[ext_resource type="Texture2D" uid="uid://b0dubipjcl4fa" path="res://graphics/actors/player/x/weapons/xbuster/blueberry/blueberry_alt1_demo.png" id="2_3qxum"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3b0fx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3qxum")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qkxa"]
+size = Vector2(64, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_voggp"]
+size = Vector2(1, 1)
+
+[node name="BusterBlueberry" type="Area2D" unique_id=1302635736]
+z_index = 2
+collision_layer = 32
+collision_mask = 8
+script = ExtResource("1_ygp2s")
+identifier = "Blueberry"
+metadata/_custom_type_script = "uid://duxb6lx13vga1"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=446497255]
+sprite_frames = SubResource("SpriteFrames_3b0fx")
+frame_progress = 0.9899708
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1451446574]
+shape = SubResource("RectangleShape2D_1qkxa")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=740443516]
+rect = Rect2(-32, -24, 64, 48)
+
+[node name="WallDetector" type="Area2D" parent="." unique_id=2025826395]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallDetector" unique_id=378669404]
+shape = SubResource("RectangleShape2D_voggp")
+
+[node name="FlipVTimer" type="Timer" parent="." unique_id=584485991]
+process_callback = 0
+wait_time = 0.05
+autostart = true

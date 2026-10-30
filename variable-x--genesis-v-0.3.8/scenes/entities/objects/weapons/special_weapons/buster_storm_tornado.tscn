@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://dhuxou8d312ee"]
+
+[ext_resource type="Script" uid="uid://b0a14j83wnu50" path="res://scripts/weapons/mmx/buster_storm_tornado.gd" id="1_khi3h"]
+[ext_resource type="Texture2D" uid="uid://cs0ohymudnw07" path="res://graphics/actors/player/x/weapons/special_weapons/x1/storm_tornado/storm_tornado_head_a.png" id="2_khi3h"]
+[ext_resource type="Texture2D" uid="uid://cui1tbug0bvl" path="res://graphics/actors/player/x/weapons/special_weapons/x1/storm_tornado/storm_tornado_head_b.png" id="3_xy2x0"]
+[ext_resource type="Texture2D" uid="uid://y1whf6ynt0nb" path="res://graphics/actors/player/x/weapons/special_weapons/x1/storm_tornado/storm_tornado_head_c.png" id="4_ky7qd"]
+[ext_resource type="Texture2D" uid="uid://dnohiof416bbx" path="res://graphics/actors/player/x/weapons/special_weapons/x1/storm_tornado/storm_tornado_head_d.png" id="5_rmapp"]
+[ext_resource type="Texture2D" uid="uid://dx2tpjeeckrdl" path="res://graphics/actors/player/x/weapons/special_weapons/x1/storm_tornado/storm_tornado_body_a.png" id="6_t6hkr"]
+[ext_resource type="Texture2D" uid="uid://c8ev6t0m10gcl" path="res://graphics/actors/player/x/weapons/special_weapons/x1/storm_tornado/storm_tornado_body_b.png" id="7_0rbvr"]
+[ext_resource type="Texture2D" uid="uid://b7x1wrvlw4aty" path="res://graphics/actors/player/x/weapons/special_weapons/x1/storm_tornado/storm_tornado_body_c.png" id="8_gkgb0"]
+[ext_resource type="Texture2D" uid="uid://btwvx87ku8dex" path="res://graphics/actors/player/x/weapons/special_weapons/x1/storm_tornado/storm_tornado_body_d.png" id="9_tt61c"]
+[ext_resource type="Texture2D" uid="uid://dvq0lc8rhwwvl" path="res://graphics/actors/player/x/weapons/special_weapons/x1/storm_tornado/storm_tornado_tail_a.png" id="10_to37d"]
+[ext_resource type="Texture2D" uid="uid://uhtbun4ytjk6" path="res://graphics/actors/player/x/weapons/special_weapons/x1/storm_tornado/storm_tornado_tail_b.png" id="11_l8aat"]
+[ext_resource type="Texture2D" uid="uid://bno8hmw174qxy" path="res://graphics/actors/player/x/weapons/special_weapons/x1/storm_tornado/storm_tornado_tail_c.png" id="12_50uvy"]
+[ext_resource type="Texture2D" uid="uid://baayxa8o4yba7" path="res://graphics/actors/player/x/weapons/special_weapons/x1/storm_tornado/storm_tornado_tail_d.png" id="13_wnoo0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rg8c5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_khi3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xy2x0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ky7qd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rmapp")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xeecd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_t6hkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0rbvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gkgb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tt61c")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bje1e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_to37d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_l8aat")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_50uvy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_wnoo0")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rg8c5"]
+resource_local_to_scene = true
+size = Vector2(64, 60)
+
+[node name="BusterStormTornado" type="Area2D" unique_id=1156493935]
+modulate = Color(1, 1, 1, 0.7529412)
+z_index = 3
+collision_layer = 32
+collision_mask = 8
+script = ExtResource("1_khi3h")
+identifier = "Storm Tornado"
+continuous = true
+metadata/_custom_type_script = "uid://duxb6lx13vga1"
+
+[node name="SpriteHead" type="AnimatedSprite2D" parent="." unique_id=492553]
+position = Vector2(-32, 0)
+sprite_frames = SubResource("SpriteFrames_rg8c5")
+frame_progress = 0.8000002
+
+[node name="SpriteBody" type="AnimatedSprite2D" parent="." unique_id=1570804568]
+sprite_frames = SubResource("SpriteFrames_xeecd")
+
+[node name="SpriteTail" type="AnimatedSprite2D" parent="." unique_id=417331674]
+position = Vector2(32, 0)
+sprite_frames = SubResource("SpriteFrames_bje1e")
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1970602323]
+shape = SubResource("RectangleShape2D_rg8c5")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=938545233]
+rect = Rect2(-144, -30, 288, 60)
