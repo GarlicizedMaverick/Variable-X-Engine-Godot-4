@@ -3,7 +3,7 @@ A framework for Mega Man X projects in Godot 4.x
 
 Current Godot version: 4.7.2
 
-Current project version: 0.3.7
+Current project version: 0.3.8
 * I'm using the semantic versioning of "Major.Minor.Patch" with the idea that version 1.0.0 will be the finished version of the game I'm building off of this (an X1 remake with two sidegames).
 * The minor version can essentially be thought of as a *major* version in the project's development, i.e.
   * 0.1.x used a resolution of 320x240 and was closer to an actual SNES X game.
@@ -127,6 +127,7 @@ The rest of the screen is filled up by Godot logos on either side that I plan on
 * Chameleon Sting
   * Pierces through enemies even if it doesn't destroy them.
   * Can be aimed upward and downward like in Maverick Hunter X.
+* Storm Tornado
 * Custom Damage Tables
   * One for enemies/bosses, one for the player.
 * Basic Camera System
