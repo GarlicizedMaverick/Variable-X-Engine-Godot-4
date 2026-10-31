@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bcgiic667gj4c"]
+
+[ext_resource type="Script" uid="uid://cshrabyf5kbyh" path="res://scripts/weapons/mmx/buster_fire_wave.gd" id="1_n43lv"]
+[ext_resource type="Texture2D" uid="uid://c7s0j02xgpvdf" path="res://graphics/actors/player/x/weapons/special_weapons/x1/fire_wave/fire_wave_1_demo.png" id="2_uvywr"]
+[ext_resource type="Texture2D" uid="uid://bk5r3tl0upnpq" path="res://graphics/actors/player/x/weapons/special_weapons/x1/fire_wave/fire_wave_2_demo.png" id="3_4dkth"]
+[ext_resource type="Texture2D" uid="uid://b7ehct2wn0oqk" path="res://graphics/actors/player/x/weapons/special_weapons/x1/fire_wave/fire_wave_3_demo.png" id="4_jdyqi"]
+[ext_resource type="Texture2D" uid="uid://iyjib5yt4aq8" path="res://graphics/actors/player/x/weapons/special_weapons/x1/fire_wave/fire_wave_4_demo.png" id="5_tsou1"]
+[ext_resource type="Texture2D" uid="uid://vum52inm61kw" path="res://graphics/actors/player/x/weapons/special_weapons/x1/fire_wave/fire_wave_5_demo.png" id="6_xdo5x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xeecd"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": ExtResource("2_uvywr")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_4dkth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jdyqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tsou1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xdo5x")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 60.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rg8c5"]
+size = Vector2(32, 32)
+
+[node name="BusterFireWave" type="Area2D" unique_id=1099572997]
+z_index = 3
+collision_layer = 32
+collision_mask = 8
+script = ExtResource("1_n43lv")
+identifier = "Fire Wave"
+type = 1
+continuous = true
+metadata/_custom_type_script = "uid://duxb6lx13vga1"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=2132250800]
+sprite_frames = SubResource("SpriteFrames_xeecd")
+frame_progress = 0.25635895
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1244801378]
+shape = SubResource("RectangleShape2D_rg8c5")
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1920363869]
+process_callback = 0
+wait_time = 0.15
+one_shot = true
+autostart = true

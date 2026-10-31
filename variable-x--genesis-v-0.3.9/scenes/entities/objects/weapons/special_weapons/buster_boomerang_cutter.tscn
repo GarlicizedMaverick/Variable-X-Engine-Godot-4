@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://rdh5mjl8rk1y"]
+
+[ext_resource type="Script" uid="uid://brtl2f6w3442h" path="res://scripts/weapons/mmx/buster_boomerang_cutter.gd" id="1_w3si5"]
+[ext_resource type="Texture2D" uid="uid://bv85x4dqc11du" path="res://graphics/actors/player/x/weapons/special_weapons/x1/boomerang_cutter/boomerang_cutter_demo.png" id="2_ib076"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rg8c5"]
+size = Vector2(32, 32)
+
+[node name="BusterBoomerangCutter" type="Area2D" unique_id=827659205]
+z_index = 2
+collision_layer = 32
+collision_mask = 266
+script = ExtResource("1_w3si5")
+identifier = "Boomerang Cutter"
+continuous = true
+metadata/_custom_type_script = "uid://duxb6lx13vga1"
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=207746341]
+texture = ExtResource("2_ib076")
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1356455414]
+shape = SubResource("RectangleShape2D_rg8c5")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=892781173]
+rect = Rect2(-224, -224, 448, 448)
+
+[node name="GrabTimer" type="Timer" parent="." unique_id=752963913]
+process_callback = 0
+wait_time = 1.5
+one_shot = true

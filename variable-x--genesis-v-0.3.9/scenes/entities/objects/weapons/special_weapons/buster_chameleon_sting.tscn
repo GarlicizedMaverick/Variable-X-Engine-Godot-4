@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://di8d83wgd81sl"]
+
+[ext_resource type="Script" uid="uid://bbmuwr5mshej" path="res://scripts/weapons/mmx/buster_chameleon_sting.gd" id="1_yap4w"]
+[ext_resource type="Texture2D" uid="uid://bd66js5qgghtt" path="res://graphics/actors/player/x/weapons/special_weapons/x1/chameleon_sting/chameleon_sting_prong_demo.png" id="2_6qw6w"]
+[ext_resource type="Texture2D" uid="uid://36rqd44c2e22" path="res://graphics/actors/player/x/weapons/special_weapons/x1/chameleon_sting/chameleon_sting_flash_1_demo.png" id="3_rww6l"]
+[ext_resource type="Texture2D" uid="uid://ddswxbsee7kjy" path="res://graphics/actors/player/x/weapons/special_weapons/x1/chameleon_sting/chameleon_sting_flash_2_demo.png" id="4_oc41m"]
+[ext_resource type="Texture2D" uid="uid://bgckmdss1ohrm" path="res://graphics/actors/player/x/weapons/special_weapons/x1/chameleon_sting/chameleon_sting_flash_3_demo.png" id="5_2eixi"]
+[ext_resource type="Texture2D" uid="uid://cyrqwaiormy1d" path="res://graphics/actors/player/x/weapons/special_weapons/x1/chameleon_sting/chameleon_sting_flash_4_demo.png" id="6_8e37m"]
+[ext_resource type="Texture2D" uid="uid://bsxpja418b7fy" path="res://graphics/actors/player/x/weapons/special_weapons/x1/chameleon_sting/chameleon_sting_flash_5_demo.png" id="7_s7x5w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rg8c5"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("3_rww6l")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_oc41m")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_2eixi")
+}, {
+"duration": 2.0,
+"texture": ExtResource("6_8e37m")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_s7x5w")
+}, {
+"duration": 2.0,
+"texture": ExtResource("6_8e37m")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_2eixi")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_oc41m")
+}, {
+"duration": 3.0,
+"texture": ExtResource("3_rww6l")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": 0,
+"name": &"default",
+"speed": 60.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rg8c5"]
+size = Vector2(64, 12)
+
+[node name="BusterChameleonSting" type="Area2D" unique_id=735338506]
+z_index = 1
+collision_layer = 32
+collision_mask = 8
+script = ExtResource("1_yap4w")
+identifier = "Chameleon Sting"
+metadata/_custom_type_script = "uid://duxb6lx13vga1"
+
+[node name="SpriteProng" type="Sprite2D" parent="." unique_id=1931135863]
+texture = ExtResource("2_6qw6w")
+
+[node name="SpriteFlash" type="AnimatedSprite2D" parent="." unique_id=974735205]
+sprite_frames = SubResource("SpriteFrames_rg8c5")
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=534897974]
+shape = SubResource("RectangleShape2D_rg8c5")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=761967302]
+rect = Rect2(-32, -6, 64, 12)
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1337565927]
+process_callback = 0
+wait_time = 0.084
+one_shot = true
+autostart = true
+
+[node name="FlashTimer" type="Timer" parent="." unique_id=901755035]
+process_callback = 0
+wait_time = 0.25
+one_shot = true
