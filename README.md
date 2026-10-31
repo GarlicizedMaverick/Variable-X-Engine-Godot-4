@@ -22,7 +22,7 @@ Tile size: 32x32 pixels
 <br>
 <br>
 
-Essentially, I use a resolution of 320x256 (1 tile taller than the PS1 games (which are 1 tile taller than the SNES games)).
+Essentially, I use a resolution of 320x256 pixels (1 tile taller than the PS1 games (which are 1 tile taller than the SNES games)).
 <br>
 
 I'm using assets that are about proportional to the SNES games, just scaled by 2x on each axis.
@@ -31,7 +31,9 @@ The rest of the screen is filled up by Godot logos on either side that I plan on
 <br>
 
 ## Features
+### Player Controller
 * Jumping
+  * Slightly inaccurate to the SNES games. I use a value of 
 * Walking
   * In the SNES games, when beginning to walk from the idle state, X will move slower (1 p/f (pixel per frame)) for the first five frames. This is akin to the "tiptoe" of the Classic games. I've implemented that here as an option (boolean).
 * Dashing
@@ -68,29 +70,15 @@ The rest of the screen is filled up by Godot logos on either side that I plan on
 * Invincibility Frames
   * Last for exactly 1.5 seconds (90 frames at 60 Hz) by default. This is slightly inaccurate to the SNES games which have an i-frame period of 93 frames. Although, the Zero/ZX games use 90 frames.
 * Jump Buffer
-  * A side effect of the jump buffer is that it lets the player do dash jumps as long as the dash button is held while the buffered jump starts. This nearly perfectly resembles the frame-perfect chained dash jumps of the Zero/ZX games. This wasn't an intentional design decision, just a neat coincidence. ~~It *is* pretty inconsistent on slopes, though, whether you're going up or down. (And I *do* mean "inconsistent". I have no idea why the same slope will or won't let you do it.)~~ It is no longer inconsistent on slopes. I realized that I wasn't setting a certain flag (dashing_to_airborne) when I should have been. The only reason I even thought of to do it was because I had just noticed that lemons shot from dash wall jumps didn't deal extra damage. This is fixed now, too.
+  * A side effect of the jump buffer is that it lets the player do dash jumps as long as the dash button is held while the buffered jump starts. This nearly perfectly resembles the frame-perfect chained dash jumps of the Zero/ZX games. This wasn't an intentional design decision, just a neat coincidence.
   * Do note however, that in *my* version, the dash button *needs* to be held to get the dash jump, whereas in the Zero/ZX games, the dash button *doesn't* strangely enough.
 * Dash Buffer
   * Mechanically identical to the jump buffer, but instead works for dashing. If you press the dash button while falling, if you keep the button held as you land and the timer hasn't yet run out, you'll dash immediately.
   * Works during knockback.
 * Coyote Timer
-  * Note that you probably won't notice it if you just walk off of a ledge, as X will most likely wall jump instead. It's more noticeable with the dash since you get out of near-wall range sooner. Though do note using my default values, it IS possible to do a coyote jump without dashing.
-* Basic Hitbox/Hurtbox System
-* Basic Enemy Spawning System
-  * I haphazardly worked on this because I needed a good way to test the Homing Torpedo. Spamming a bunch of enemies in the stage just wasn't cutting it.
-  * In the state that it's in now, it's a bit of a mess. Regardless, it functions properly, allowing you to set whether or not an enemy should spawn only when approached from a certain side of the screen (or any combination of sides).
-* Dummy Enemy
-  * Damages the player
-  * Takes damage from player weapons
-* "Spiky" Enemy
-  * It's pretty accurate to the original, in both animation and function.
-    * I don't know its exact movement speed, nor jump height, however.
-  * It has a graze area above its normal hitbox, taking less damage to certain projectiles, just like the original
-    * I don't know the exact size of the graze area, however.
-    * Fun Fact: Even the Hadouken won't insta-kill a Spiky if it only hits its graze area. I may or may not keep this functionality.
-  * The most notable change is that when it tumbles over at 1 HP, it will remove its hitbox once it stops moving.
-* Weapon System
-* Charging
+  * Note that you probably won't notice it if you just walk off of a ledge, as X will most likely wall jump instead. It's more noticeable with the dash since you get out of near-wall range sooner.
+
+### Weapons
 * Lemons
   * Lemons don't go through walls like in X5 and onwards.
   * Dash Lemons are a separate entity.
@@ -127,15 +115,36 @@ The rest of the screen is filled up by Godot logos on either side that I plan on
   * Can be aimed upward and downward like in Maverick Hunter X.
 * Storm Tornado
 * Fire Wave
+  * Deals damage on a per-frame basis, rather than every *two* frames like the original.
+
+### Enemies
+* Dummy Enemy
+  * Damages the player
+  * Takes damage from player weapons
+* "Spiky" Enemy
+  * It's pretty accurate to the original, in both animation and function.
+    * I don't know its exact movement speed, nor jump height, however.
+  * It has a graze area above its normal hitbox, taking less damage to certain projectiles, just like the original
+    * I don't know the exact size of the graze area, however.
+    * Fun Fact: Even the Hadouken won't insta-kill a Spiky if it only hits its graze area. I may or may not keep this functionality.
+  * The most notable change is that when it tumbles over at 1 HP, it will deactivate its hitbox once it stops moving.
+
+### Systems
+* Basic Hitbox/Hurtbox System
+* Basic Enemy Spawning System
+  * I haphazardly worked on this because I needed a good way to test the Homing Torpedo. Spamming a bunch of enemies in the stage just wasn't cutting it.
+  * In the state that it's in now, it's a bit of a mess. Regardless, it functions somewhat properly, allowing you to set whether or not an enemy should spawn only when approached from a certain side of the screen (or any combination of sides).
+* Variable Weapon System
+* Weapon Charging (X-Buster only at the moment)
 * Custom Damage Tables
   * One for enemies/bosses, one for the player.
 * Basic Camera System
   * Somewhat based off of how the SNES/PS1 games handle it (a bunch of areas that interpolate the camera bounds over a set amount of time)
   * X's position is clamped within the camera bounds. I believe this is how the actual SNES/PS1 games work.
-  * While I haven't implemented a death/respawn system yet, I could pretty easily implement instant death pits by checking if X's position equals the camera's lower bound.
+  * While I haven't implemented a death/respawn system yet, I could pretty easily implement instant death pits by checking if X's y-position equals the camera's lower bound.
   * You don't hit your head on an invisible ceiling at the camera's upper bound (unless there's terrain above, of course). This is how the SNES games work, but I believe that in the PlayStation games the camera's upper bound *does* act as a ceiling.
   * The player scene uses its own Area2D to detect the camera areas. This makes it easy to ignore detection whenever desired (such as for cutscenes).
 * Ki
-  * This is completely of my own designs. This project is a base for a personal project of mine: a(nother) remake of X1 (and maybe the rest, too). Part of that involves playing more into the growth arc present in the narrative. Ki is the instrument that brings it into gameplay.
+  * This is completely of my own design. This project is a base for a personal project of mine: a(nother) remake of X1 (and maybe the rest, too). Part of that involves playing more into the growth arc present in the narrative. Ki is the instrument that brings it into gameplay.
   * As Ki increases, X will jump higher, dash/shoot faster, increase his attack power, gain various properties taken from the parts systems of X5-X7, and so on.
   * You can safely ignore this if you want a vanilla X-styled controller, but feel free to play around with it if you like it and maybe even implement it in your own projects.
