@@ -93,6 +93,8 @@ The rest of the screen is filled up by Godot logos on either side that I plan on
 * Electric Spark
   * Unlike the original, it splits twice: once vertically, but then once more horizontally.
   * As of October 31 2026, I have just learned that the Electric Spark will move along the angle of a slope it hits. Since I have *also* learned that it's in Maverick Hunter X as well, I have spent a few hours implementing the functionality as I refuse to be beaten by what I consider a third-rate remake. The next release (0.4.0) will be the first to have this new functionality. Hopefully I remember to alter this point once I upload it.
+    * If the D-pad is held upward or downward when the Electric Spark hits a slope, both of the split sparks will go up or down respectively.
+    * P.S. Electric Spark does *not* work like that on slopes in *Mega Man Xtreme*.
 * Rolling Shield
   * Unlike the original, this version of the Rolling Shield continuously deals damage to enemies it's in contact with.
     * The Rolling Shield has much more health to accommodate for this design change.
