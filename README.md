@@ -3,15 +3,13 @@ A framework for Mega Man X projects in Godot 4.x
 
 Current Godot version: 4.7.2
 
-Current project version: 0.3.8
+Current project version: 0.3.9
 * I'm using the semantic versioning of "Major.Minor.Patch" with the idea that version 1.0.0 will be the finished version of the game I'm building off of this (an X1 remake with two sidegames).
 * The minor version can essentially be thought of as a *major* version in the project's development, i.e.
   * 0.1.x used a resolution of 320x240 and was closer to an actual SNES X game.
   * 0.2.x introduced the 640x512 gameplay resolution, as well as additions to the character controller and the implementation of hit/hurtboxes.
   * 0.3.x was where I did a complete overhaul on shooting and reworked the combat system (Variable Weapon System and hitboxes/hurtboxes).
-    * Seeing as I'm still on this version, I'm expecting each patch version to add a new Special Weapon.
-  * ~~I'm anticipating for 0.4.x to have a major focus on designing enemies and their behaviors.~~
-  * Changed my mind about 0.4.x. I'm going to focus on the armor parts/system next.
+  * For 0.4.x, I'm going to focus mainly on the armor parts/system and other miscellaneous features.
   * I'm anticipating for 0.5.x to have a major focus on designing enemies and their behaviors.
 <br>
 
@@ -128,6 +126,7 @@ The rest of the screen is filled up by Godot logos on either side that I plan on
   * Pierces through enemies even if it doesn't destroy them.
   * Can be aimed upward and downward like in Maverick Hunter X.
 * Storm Tornado
+* Fire Wave
 * Custom Damage Tables
   * One for enemies/bosses, one for the player.
 * Basic Camera System
